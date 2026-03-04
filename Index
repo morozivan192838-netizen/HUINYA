@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иван Победитель | Легенда бодибилдинга</title>
+    <!-- Шрифт для современного и брутального стиля -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome для иконок (соцсети, галочки) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a0a;
+            color: #fff;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Герой (Hero) секция */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            opacity: 0.25;
+            mix-blend-mode: overlay;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero-text .highlight {
+            color: #d4af37; /* Золотой цвет победителя */
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #cccccc;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text .description {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            max-width: 500px;
+            border-left: 4px solid #d4af37;
+            padding-left: 20px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #d4af37;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #aaa;
+            letter-spacing: 1px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #d4af37;
+            color: #0a0a0a;
+            border-color: #d4af37;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #d4af37;
+        }
+
+        .btn-outline {
+            border: 2px solid #d4af37;
+            color: #fff;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: #d4af37;
+            color: #0a0a0a;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.7));
+            border-radius: 10px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Общие стили секций */
+        .section {
+            padding: 100px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .section-title span {
+            color: #d4af37;
+            border-bottom: 3px solid #d4af37;
+            padding-bottom: 5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Достижения (карусель/сетка достижений) */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .achievement-card {
+            background: #151515;
+            padding: 40px 30px;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .achievement-card h3 {
+            font-size: 1.8rem;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .achievement-card .year {
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .achievement-card p {
+            color: #bbb;
+            font-size: 1rem;
+        }
+
+        /* Тренировки / Метод */
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .method-item {
+            background: #151515;
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .method-item i {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .method-item h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .method-item p {
+            color: #bbb;
+        }
+
+        /* Галерея */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 5px;
+            border: 2px solid #333;
+            transition: 0.3s;
+            aspect-ratio: 1 / 1.2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover {
+            border-color: #d4af37;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Отзывы/Цитата */
+        .testimonial {
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            text-align: center;
+            border-left: 5px solid #d4af37;
+            padding: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+
+        .testimonial i {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .testimonial p {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .testimonial .author {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: #d4af37;
+        }
+        .testimonial .author span {
+            color: #fff;
+            font-weight: 300;
+        }
+
+        /* Контакты */
+        .contact {
+            background: #0a0a0a;
+        }
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-info i {
+            color: #d4af37;
+            width: 30px;
+            font-size: 1.3rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .social-links a {
+            color: #fff;
+            background: #222;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            background: #d4af37;
+            color: #0a0a0a;
+        }
+        .contact-form {
+            flex: 1;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: #222;
+            border: 1px solid #333;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 3px;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        button.btn-primary {
+            width: 100%;
+            border: none;
+            font-size: 1.2rem;
+            padding: 15px;
+        }
+
+        /* Футер */
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 30px 0;
+            color: #777;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text .description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .method-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+            .testimonial {
+                padding: 30px 20px;
+            }
+            .testimonial p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Иван <span class="highlight">«Победитель»</span></h1>
+                <div class="subtitle">Абсолютный чемпион по бодибилдингу</div>
+                <p class="description">Мастер спорта международного класса. Трехкратный обладатель кубка «Мистер Олимп» и победитель множества международных турниров.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Лет стажа</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Кубков</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Абсолют</span>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary">Сотрудничать</a>
+                    <a href="#achievements" class="btn btn-outline">Достижения</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Фото Ивана (заглушка из Unsplash, для примера) -->
+                <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Иван Победитель на соревнованиях">
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция достижений -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title"><span>Золотые</span> вершины</h2>
+            <p class="section-subtitle">Годы упорного труда превратили Ивана в легенду. Вот лишь малая часть его трофеев.</p>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-crown"></i></div>
+                    <h3>Мистер Олимп</h3>
+                    <span class="year">2023, 2022, 2021</span>
+                    <p>Трехкратный абсолютный чемпион в категории Men's Physique. Рекордная мышечная масса и эстетика.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                    <h3>Arnold Classic</h3>
+                    <span class="year">2024, 2020</span>
+                    <p>Победа на престижнейшем турнире в Колумбусе. Приз зрительских симпатий и лучший в позинге.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Чемпионат Европы</h3>
+                    <span class="year">2019, 2018</span>
+                    <p>Золото в абсолютной категории. Титул «Мистер Европа» с рекордными баллами.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Философия/Метод тренировок -->
+    <section class="section" style="background: #0f0f0f;">
+        <div class="container">
+            <h2 class="section-title"><span>Метод</span> Ивана</h2>
+            <p class="section-subtitle">Секрет побед — не только в генетике, но и в уникальной системе подготовки.</p>
+            <div class="method-grid">
+                <div class="method-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Интуитивный тренинг</h3>
+                    <p>Иван разработал собственную систему «Mind-Muscle», позволяющую задействовать最深 мышечные волокна.</p>
+                </div>
+                <div class="method-item">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Строжайшая дисциплина</h3>
+                    <p>6 приемов пищи по часам, ни одного срыва. Подготовка к соревнованиям начинается за полгода.</p>
+                </div>
+                <div class="method-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Наука восстановления</h3>
+                    <p>Сочетание криотерапии, массажа и циклирования нагрузок позволяет тренироваться на пике каждый день.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея (имидж борд) -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title"><span>Моменты</span> славы</h2>
+            <p class="section-subtitle">Кадры с соревнований и закулисье подготовки чемпиона.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534368270820-9a23a9bdc5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Иван на сцене"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Тренировка спины"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Подиум"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Кубок"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цитата/Отзыв от известного тренера -->
+    <section class="section" style="background: #0a0a0a; border-bottom: none;">
+        <div class="container">
+            <div class="testimonial">
+                <i class="fas fa-quote-right"></i>
+                <p>«Иван — это идеальный баланс массы, рельефа и сценической харизмы. За 30 лет в спорте я не видел более трудолюбивого атлета. Он рожден побеждать.»</p>
+                <div class="author">— Арнольд Шварценеггер <span>(легенда бодибилдинга)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты (форма и соцсети) -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title"><span>Стань</span> частью команды</h2>
+            <p class="section-subtitle">Хочешь тренироваться с Иваном, пригласить на семинар или предложить сотрудничество? Пиши!</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Москва, Россия / Dubai, UAE</p>
+                    <p><i class="fas fa-phone-alt"></i> +7 (999) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@ivan-pobeditel.ru</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="5" placeholder="Сообщение (например, предложение о тренировке или интервью)"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить запрос</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Иван «Победитель». Все права защищены. Iron never lies.</p>
+        </div>
+    </footer>
+
+    <!-- Плавный скролл для якорей (простой JS) -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
